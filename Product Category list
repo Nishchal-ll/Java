@@ -1,0 +1,53 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        ArrayList<String> products = new ArrayList<>();
+        ArrayList<String> categories = new ArrayList<>();
+
+        int choice;
+        do{
+            System.out.println("Ecommerce Store");
+            System.out.println("1. Add Product");
+            System.out.println("2. Show Products");
+            System.out.println("3.Exit");
+            System.out.println("Enter your choice");
+            choice = sc.nextInt();
+            sc.nextLine();
+            switch (choice) {
+                case 1:
+                    System.out.println("Enter product name");
+                    String name = sc.nextLine();
+                    System.out.println("Enter category name");
+                    String category = sc.nextLine();
+                    products.add(name);
+                    categories.add(category);
+                    System.out.println("Product added successfully");
+                    break;
+
+                case 2:
+                    if (categories.isEmpty()) {
+                        System.out.println("No category has been added");
+                    }
+                    else{
+                        System.out.println("Products are:");
+                        for (int i=0; i<categories.size(); i++) {
+                            System.out.println((i+1)+"."+"Product:"+products.get(i));
+                            System.out.println("Category:"+categories.get(i));
+                        }
+                    }
+                    break;
+                case 3:
+                    System.out.println("Exit");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice");
+            }
+        }while(choice!=3);
+        sc.close();
+    }
+}
+
